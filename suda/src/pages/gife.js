@@ -15,7 +15,9 @@ class Gife extends Component {
         // simulate img loading
         setTimeout(() => {
           this.setState({
-            data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
+            // data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
+            data: ['../img/1.png', '../img/2.png', '../img/3.png'],
+
           });
         }, 100);
       }
@@ -38,9 +40,10 @@ class Gife extends Component {
               style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
             >
               <img
-                src={`https://zos.alipayobjects.com/rmsportal/${val}.png`}
+                // src={`https://zos.alipayobjects.com/rmsportal/${val}.png`}
+                src={val}
                 alt=""
-                style={{ width: '100%', verticalAlign: 'top' }}
+                style={{ width: '100%', verticalAlign: 'top' ,height:170}}
                 onLoad={() => {
                   // fire window resize event to change height
                   window.dispatchEvent(new Event('resize'));
@@ -52,8 +55,17 @@ class Gife extends Component {
         </Carousel>
       </WingBlank>
 
-          </div>
-        </div>
+    </div>
+    <div className='banner'>
+        <div className='left'><img src={'../img/banner1.png'}/></div>
+        <div className='right1'></div>
+        <div className='right2'></div>
+    </div>
+    <div className='list'>
+
+    </div>
+          
+</div>
 
       );
     
