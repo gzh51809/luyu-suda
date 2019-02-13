@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../sass/gife.scss';
+import axios from 'axios';
 import { Carousel, WingBlank } from 'antd-mobile';
+import data from '../data/pakage.json';
 
 class Gife extends Component {
     constructor(){
@@ -8,8 +10,23 @@ class Gife extends Component {
         this.state={
             data: ['1', '2','3'],
             imgHeight: 176,
-            banner:[]
+            banner:[],
+            goods: []
         }
+    }
+    componentWillMount(){
+        this.setState({
+            goods: data
+        },()=>{
+            console.log(this.state.goods,11111111);
+        })
+        // axios.get('../data/pakage.json')
+        // .then((res)=>{
+        //     console.log(res);
+        // })
+        // .catch((err)=>{
+        //     console.log(err)
+        // })
     }
     componentDidMount() {
         // simulate img loading
@@ -57,12 +74,29 @@ class Gife extends Component {
 
     </div>
     <div className='banner'>
-        <div className='left'><img src={'../img/banner1.png'}/></div>
-        <div className='right1'></div>
-        <div className='right2'></div>
+        <div className='left'><p style={{fontWeight:"bolder",left:'15%',top:10}}>热映大片</p><p style={{left:'15%',top:30}}>电影院走起</p><img src={'../img/banner1.png'}/></div>
+        <div className='right'>
+        <p style={{fontWeight:"bolder",left:'15%',top:10}}>西饼蛋糕</p><p style={{left:'15%',top:30}}>全球优质风味</p>
+        <p style={{fontWeight:"bolder",left:'15%',top:130}}>提货券专区</p><p style={{left:'15%',top:150}}>优中选优</p>
+        <div className='right1'><img src={'../img/banner2.png'}/></div>
+        <div className='right2'><img src={'../img/banner3.png'}/></div></div>
     </div>
     <div className='list'>
+ 
+         <ul>
+        {
+            this.state.goods.map((item,index)=>{
+                return (
+                    <li key={index}>
+                        <img src={item.src} alt=""/>
+                        <p style={{fontWeight:'bold'}}>{item.title}</p>
+                        <p>{item.content}</p>
 
+                    </li>
+                )
+            })
+        }
+         </ul>
     </div>
           
 </div>

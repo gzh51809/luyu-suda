@@ -28,5 +28,6 @@
   ],
   "devDependencies": {
     "react-app-rewired": "^2.1.0"
-  }
+  },
+  "proxy": "https://tags.growingio.com/"
 }
