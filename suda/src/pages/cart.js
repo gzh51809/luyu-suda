@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import '../sass/cart.scss';
 
 class Cart extends Component {
     render() {
       return (
         <div className="Cart">
-          <h1>我是购物车</h1>
+          <div className='head'><span class="iconfont icon-home"></span>购物车</div>
         </div>
       );
     }
